@@ -51,6 +51,7 @@ module.exports = {
     //   },
     // },
   },
+  //多页面配置
   pages: {
       about: {
           entry: "src/pages/about/main.js",
