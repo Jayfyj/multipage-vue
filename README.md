@@ -58,6 +58,14 @@ chunks: ['chunk-vendors', 'chunk-common', 'index']
 }
 },
 
+#### 多页面之前传参数（使用 sessionStorage）
+
+页面之前传参数，使用浏览器存储方式（使用 sessionStorage）
+
+####
+
+####
+
 ####
 
 ####

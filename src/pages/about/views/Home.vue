@@ -7,11 +7,17 @@
 
 <script>
 import { defineComponent } from '@vue/composition-api'
+import router from '../router'
 
 export default defineComponent({
   setup () {
+    console.log(sessionStorage.getItem('id'))
+    let currentRoute = router.currentRoute
+    console.log(currentRoute)
+
     function goHtml () {
       window.location.href = './index.html'
+      sessionStorage.removeItem('id')
     }
 
     return {

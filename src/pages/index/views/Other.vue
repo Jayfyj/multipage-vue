@@ -11,9 +11,9 @@
 export default {
   setup () {
     function goHtml () {
-      window.location.href = './about.html'
+      window.location.href = `./about.html`
+      sessionStorage.setItem('id', 'jay')
     }
-
     return {
       goHtml
     }
