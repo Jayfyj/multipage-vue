@@ -138,6 +138,7 @@ export default {
   word-break: break-all;
   font-size: 30px;
   font-family: PingFang SC;
+  z-index:10000
 }
 .v-enter {
   opacity: 1;

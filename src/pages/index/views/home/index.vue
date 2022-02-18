@@ -1,7 +1,7 @@
 <template>
   <div class="indexPage">
     <div class="optionBtn"
-         v-for="(item, index) in meunList"
+         v-for="(item, index) in meunList.value"
          :key="index"
          @click="goPage(item.url)">
       <span>{{ item.text }}</span>
@@ -11,27 +11,26 @@
 
 <script>
 import { homeMenuUrl } from './api'
-import { ref, reactive } from '@vue/composition-api'
+import { reactive } from '@vue/composition-api'
 
 export default {
   name: 'IndexHome',
   setup () {
     //设置菜单数组
-    let meunList = reactive([])
+    let meunList = reactive({ value: [] })
 
     //获取mock的菜单数据
     homeMenuUrl().then(res => {
       let { code, data } = res.data
       if (code === '0000') {
-        data.map(item => {
-          meunList.push(item)
-        })
+        meunList.value = data
       }
     })
 
     //跳转路由
     function goPage (url) {
       console.log(url)
+      window.location.href = './about.html'
     }
 
     return {

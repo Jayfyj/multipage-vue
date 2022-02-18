@@ -3,7 +3,7 @@
        :style="{ height: '50px' }">
     <div class="bottomNav_Btn"
          :style="{ height: '50px' }"
-         v-for="(item, index) in tabList"
+         v-for="(item, index) in tabList.value"
          :key="index"
          @click="tabClick(item)">
       <i :class="[item.tabIcon, { active: item.tabActive }]"></i>
@@ -13,12 +13,16 @@
 </template>
 
 <script>
+import { reactive } from '@vue/composition-api'
+import Router from '@/utils/multiRoute'
+
 export default {
   name: 'bottomNav',
-  mounted () { },
-  data () {
-    return {
-      tabList: [
+  setup () {
+
+    //设置tablist数组
+    let tabList = reactive({
+      value: [
         {
           tabIcon: 'iconfont icon-shouye1',
           tabSelectIcon: '',
@@ -52,24 +56,29 @@ export default {
           tabId: 3
         }
       ]
-    }
-  },
-  methods: {
-    tabClick (item) {
+    })
+
+    //点击tab事件
+    function tabClick (item) {
       if (item.tabActive) return
-      this.tabList.forEach((ele, index) => {
+      tabList.value.forEach((ele, index) => {
         if (ele.tabId != item.tabId) {
           ele.tabActive = false
         } else {
           ele.tabActive = true
-          this.$router.push({
+          Router.push({
             name: ele.tabURL
           })
         }
       })
     }
+
+    return {
+      tabList,
+      tabClick
+    }
+
   },
-  components: {}
 }
 </script>
 

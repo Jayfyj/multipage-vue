@@ -15,6 +15,14 @@
 
 2.页面之前传参数，使用浏览器存储方式（使用 sessionStorage）
 
+3.reactive 声明的响应式对象被 arr 代理，操作代理对象需要有代理对象的前缀，直接覆盖会丢失响应式，
+所以，vue3 使用 proxy，对于对象和数组都不能直接整个赋值 需要这样：对象添加一个属性再赋值
+let formValue = reactive({ value: {} })
+let arr = reactive({ value: [] })
+
+4.因为多页面，所以在单页面的时候，路由跳转,需要引入对应的路由对象，所以当组件需要做路由操作的时候，就引入
+import Router from '@/utils/multiRoute'
+
 ####
 
 ####

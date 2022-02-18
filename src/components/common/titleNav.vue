@@ -1,19 +1,19 @@
 <template>
   <div class="titleNav"
-       :style="{ height: '50px' }"
+       :style="{ height: titleWrap }"
        v-if="isShow">
     <div class="titleLeft"
-         :style="{ height: '50px' }">
+         :style="{ height: titleWrap}">
       <i class="iconfont icon-fanhui IconFun"
-         v-if="LeftShow"
+         v-if="back"
          @click="leftClick()"></i>
     </div>
     <div class="titleCenter"
-         :style="{ height: '50px' }">
+         :style="{ height: titleWrap }">
       <span>{{ title }}</span>
     </div>
     <div class="titleRight"
-         :style="{ height: '50px' }">
+         :style="{ height: titleWrap }">
       <i class="iconfont icon-kefu IconFun"
          v-if="RightShow"
          @click="rightClick()"></i>
@@ -22,6 +22,7 @@
 </template>
 
 <script>
+import Router from '@/utils/multiRoute'
 export default {
   name: 'titleNav',
   props: {
@@ -30,35 +31,42 @@ export default {
       type: Boolean,
       default: true
     },
-    //左边图案
-    LeftShow: {
-      type: Boolean,
-      default: true
-    },
+
+    //显示返回图标
+    back: Boolean,
+
     //右边图案
-    RightShow: {
-      type: Boolean,
-      default: false
-    },
+    RightShow: Boolean,
+
     //标题
     title: {
       type: String,
       default: ''
-    }
-  },
-  mounted () { },
-  data () {
-    return {}
-  },
-  methods: {
-    leftClick () {
-      this.$router.go(-1)
     },
-    rightClick () {
-      this.$emit('rightClick')
+
+    //标题高度
+    titleWrap: {
+      type: String,
+      default: '50px'
     }
   },
-  components: {}
+  setup (props, { emit }) {
+
+    //左边图标按钮
+    function leftClick () {
+      Router.go(-1)
+    }
+
+    //右边图标按钮
+    function rightClick () {
+      emit('rightClick')
+    }
+
+    return {
+      leftClick,
+      rightClick
+    }
+  },
 }
 </script>
 

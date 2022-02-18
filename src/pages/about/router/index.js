@@ -4,7 +4,7 @@ Vue.use(VueRouter);
 
 
 // 获取router文件夹的moduleRouter里面的js
-const routesfiles = require.context(`@/pages/index/views`, true, /\/route\.js$/)
+const routesfiles = require.context(`@/pages/about/views`, true, /\/route\.js$/)
 // 把里面的路由拼接成一个，赋值给路由对象的routes
 const routes = routesfiles.keys().reduce(
   (pre, key) => [...pre, ...routesfiles(key).default],
