@@ -6,18 +6,31 @@
          @click="goPage(item.url)">
       <span>{{ item.text }}</span>
     </div>
+    <van-button @click="goPageHtml">{{hrefText}}</van-button>
   </div>
 </template>
 
 <script>
 import { homeMenuUrl } from './api'
-import { reactive } from '@vue/composition-api'
+import { ref, reactive } from '@vue/composition-api'
+import Route from '@/utils/multiRoute'
 
 export default {
   name: 'IndexHome',
   setup () {
+
+    //赋值路由对象
+    const Router = Route.default
+
+    //获取当前路由
+    let { currentRoute } = Router
+    console.log(currentRoute)
+
     //设置菜单数组
     let meunList = reactive({ value: [] })
+
+    //跳转about.html
+    let hrefText = ref('跳转about.html')
 
     //获取mock的菜单数据
     homeMenuUrl().then(res => {
@@ -29,13 +42,19 @@ export default {
 
     //跳转路由
     function goPage (url) {
-      console.log(url)
+      Router.push('/todo')
+    }
+
+    //跳转Html
+    function goPageHtml () {
       window.location.href = './about.html'
     }
 
     return {
+      hrefText,
       meunList,
-      goPage
+      goPage,
+      goPageHtml
     }
   }
 

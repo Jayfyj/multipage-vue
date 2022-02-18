@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import Router from '@/utils/multiRoute'
+import Route from '@/utils/multiRoute'
 export default {
   name: 'titleNav',
   props: {
@@ -51,6 +51,9 @@ export default {
     }
   },
   setup (props, { emit }) {
+
+    //赋值路由对象
+    const Router = Route.default
 
     //左边图标按钮
     function leftClick () {

@@ -1,26 +1,35 @@
 <<template>
   <div id="about">
     about页面
-    <van-button @click="goHtml">跳转index.HTML</van-button>
+    <van-button @click="goHtml">{{hrefText}}</van-button>
   </div>
 </template>
 
 <script>
-import { defineComponent } from '@vue/composition-api'
-import router from '../router'
+import { defineComponent, ref } from '@vue/composition-api'
+import Route from '@/utils/multiRoute'
+
 
 export default defineComponent({
   setup () {
-    console.log(sessionStorage.getItem('id'))
-    let currentRoute = router.currentRoute
+
+    //设置跳转index.html
+    let hrefText = ref('跳转index.html')
+
+    //赋值路由对象
+    const Router = Route.default
+
+    //获取当前路由
+    let { currentRoute } = Router
     console.log(currentRoute)
 
+    //跳转Html
     function goHtml () {
       window.location.href = './index.html'
-      sessionStorage.removeItem('id')
     }
 
     return {
+      hrefText,
       goHtml
     }
   },

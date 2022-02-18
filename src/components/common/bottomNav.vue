@@ -14,11 +14,15 @@
 
 <script>
 import { reactive } from '@vue/composition-api'
-import Router from '@/utils/multiRoute'
+import Route from '@/utils/multiRoute'
+
 
 export default {
   name: 'bottomNav',
   setup () {
+
+    //赋值路由对象
+    const Router = Route.default
 
     //设置tablist数组
     let tabList = reactive({

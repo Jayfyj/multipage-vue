@@ -20,8 +20,18 @@
 let formValue = reactive({ value: {} })
 let arr = reactive({ value: [] })
 
-4.因为多页面，所以在单页面的时候，路由跳转,需要引入对应的路由对象，所以当组件需要做路由操作的时候，就引入
-import Router from '@/utils/multiRoute'
+4.因为多页面，所以在单页面的时候，路由跳转,需要引入对应的路由对象，所以当组件需要做路由操作的时候，如下:
+import Route from '@/utils/multiRoute'
+export default {
+setup (props, { emit }) {
+
+    //赋值路由对象
+    const Router = Route.default
+    ...
+    ...
+
+},
+}
 
 ####
 

@@ -1,7 +1,7 @@
 export default [
   {
     path: '/',
-    name: 'IndexHome',
+    name: 'aboutHome',
     component: () => import('./index'),
     meta:{
       isFloatBtnShow:true
