@@ -62,29 +62,30 @@ export default {
 }
 </script>
 
-<style scoped="scoped" lang="less">
+<style scoped="scoped" lang="scss">
 //背景色
-@titleNavBG: PINK;
+$titleNavBG: PINK;
 //左右padding
-@paddingLAR: 8px;
-//标题字体和颜色
-.titleFontSizeColor() {
+$paddingLAR: 8PX;
+
+//标题字体和颜色(定义一个类，声明使用@mixin名字，引用@include名字)
+@mixin titleFontSizeColor{
   font-size: 48px;
   color: white;
 }
 
 //图标大小和颜色
-.titleIconSizeColor() {
+@mixin titleIconSizeColor{
   font-size: 64px;
   color: white;
 }
 
 .titleNav {
-  background: @titleNavBG;
+  background: $titleNavBG;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0 @paddingLAR;
+  padding: 0 $paddingLAR;
   box-sizing: border-box;
   .titleLeft {
     flex: 1;
@@ -92,7 +93,7 @@ export default {
     justify-content: flex-start;
     align-items: center;
     > .IconFun {
-      .titleIconSizeColor();
+      @include titleIconSizeColor;
     }
   }
   .titleCenter {
@@ -101,7 +102,7 @@ export default {
     justify-content: center;
     align-items: center;
     > span {
-      .titleFontSizeColor();
+      @include titleFontSizeColor;
     }
   }
   .titleRight {
@@ -110,7 +111,7 @@ export default {
     justify-content: flex-end;
     align-items: center;
     > .IconFun {
-      .titleIconSizeColor();
+      @include titleIconSizeColor;
     }
   }
 }

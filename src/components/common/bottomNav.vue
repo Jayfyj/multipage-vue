@@ -73,9 +73,7 @@ export default {
 }
 </script>
 
-<style scoped="scoped" lang="less">
-//背景色
-@bottomNavBG: PINK;
+<style scoped="scoped" lang="scss">
 
 .bottomNav {
   border-top: 1px solid #cccccc;
