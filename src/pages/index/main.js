@@ -3,7 +3,9 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import 'amfe-flexible'
-
+import '@/assets/common.css' //公共样式
+import '@/assets/font/font.css'
+import '@/assets/iconfont/iconfont.css'
 
 //使用组合API
 import VueCompositionAPI from '@vue/composition-api'
@@ -14,9 +16,6 @@ const Mock = require('@/mock')
 
 //引入vant
 import '@/plugins/vant'
-
-//引入minit
-import '@/plugins/mint'
 
 //引入zepto
 import $ from 'zepto'

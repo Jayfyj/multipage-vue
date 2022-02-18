@@ -1,8 +1,8 @@
 import axios from 'axios'  //引入axios
 import { Toast } from 'vant'
 //下面这两个不一定需要引入，看你项目需要拦截的时候做什么操作，但是一般都需要引入store
-import store from '@/store'  //引入store
-import router from '@/router'  //引入router
+// import store from '@/store'  //引入store
+// import router from '@/router'  //引入router
 
 
 const baseURL = ''
@@ -89,7 +89,7 @@ instance.interceptors.response.use(
       //       }
       //     })
       // }
-      console.log(response.data.code)
+      // console.log(response.data.code)
     }
     return response
   },

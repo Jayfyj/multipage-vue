@@ -83,7 +83,7 @@ module.exports = {
           pxtorem({
             rootValue: 32,
             propList: ['*'],
-            selectorBlackList: ['.van-', '.mint-'] // 过滤掉.vant-开头的class，不进行rem转换
+            selectorBlackList: ['.van-'] // 过滤掉.vant-开头的class，不进行rem转换
           })
         ]
       },
@@ -114,7 +114,6 @@ module.exports = {
         echarts: "echarts",
         vant: 'vant',
         zepto: '$',
-        // 'mint-ui': 'mint-ui',
 
       });
     });
@@ -142,6 +141,13 @@ module.exports = {
         bypassOnDebug: true
       })
       .end()
+
+      //图片小于20K转化base64
+      config.module
+      .rule('images')
+      .use('url-loader')
+      .loader('url-loader')
+      .tap(options => Object.assign(options, { limit: 20000 }))
   },
   configureWebpack: (config) => {
 

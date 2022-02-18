@@ -16,14 +16,14 @@ module.exports = {
       },
       "vant",
     ],
-    [
-      "component",
-      {
-        libraryName: "mint-ui",
-        style: true,
-      },
-      "mint-ui",
-    ],
+    // [
+    //   "component",
+    //   {
+    //     libraryName: "mint-ui",
+    //     style: true,
+    //   },
+    //   "mint-ui",
+    // ],
     ...prodPlugins,
   ],
 };

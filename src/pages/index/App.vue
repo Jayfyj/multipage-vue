@@ -1,6 +1,14 @@
 <template>
   <div id="app">
-    <router-view />
+    <float-btn v-if='$route.meta.isFloatBtnShow'
+               @onFloatBtnClicked="() => {$router.replace('/')}">
+      返回
+    </float-btn>
+    <keep-alive>
+      <router-view v-if="$route.meta.keepAlive"></router-view>
+    </keep-alive>
+
+    <router-view v-if="!$route.meta.keepAlive"></router-view>
   </div>
 </template>
 

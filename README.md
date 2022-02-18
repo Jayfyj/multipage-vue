@@ -1,40 +1,31 @@
 # multipage-vue
 
-## Project setup
+####
 
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-
-```
-npm run build
-```
-
-### Lints and fixes files
-
-```
-npm run lint
-```
-
-### Customize configuration
-
-See [Configuration Reference](https://cli.vuejs.org/config/).
+####
 
 ####
 
 ####
 
-#### 多页面配置
+#### 开发
 
-//多页面配置
+1.开发页面的时候类似开发小程序，例如:在对应的页面的 views 文件夹，
+新建 home 文件夹，里面新建 api.js(接口文件),.vue 文件(组件页面),route.js(路由文件)
+
+2.页面之前传参数，使用浏览器存储方式（使用 sessionStorage）
+
+####
+
+####
+
+####
+
+####
+
+#### 项目配置
+
+1.多页面配置
 pages: {
 about: {
 entry: "src/pages/about/main.js",
@@ -58,10 +49,6 @@ chunks: ['chunk-vendors', 'chunk-common', 'index']
 }
 },
 
-#### 多页面之前传参数（使用 sessionStorage）
-
-页面之前传参数，使用浏览器存储方式（使用 sessionStorage）
-
 ####
 
 ####
@@ -70,9 +57,9 @@ chunks: ['chunk-vendors', 'chunk-common', 'index']
 
 ####
 
-#### 打包遇到问题
+#### 遇到问题
 
-### compression-webpack-plugin 插件问题
+1.compression-webpack-plugin 插件问题:
 
 报错：TypeError: Cannot read property ‘tapPromise‘ of undefined
 解决：先执行卸载命令->npm uninstall compression-webpack-plugin，执行安装命令->npm i compression-webpack-plugin@5.0.1

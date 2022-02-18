@@ -4,11 +4,10 @@ const data = [
   { url: '/textAlignPage', text: '字体位置' },
   { url: '/vuexDomePage', text: 'vuex使用例子' },
   { url: '/dragPage', text: '拖拽排列' },
-  { url: '/scrollStylePage', text: '滚动类型' },
+  // { url: '/scrollStylePage', text: '滚动类型' },
   { url: '/fullPage', text: '全屏滚动切换' },
   { url: '/chooseAllPage', text: '全选和反选例子' },
   { url: '/directivesPage', text: '指令页面' },
-  { url: '/composeAPI', text: '组合API' }
 ]
 
 Mock.setup({
@@ -16,7 +15,7 @@ Mock.setup({
 })
 
 Mock.mock(RegExp('/server/homeMenu' + '.*'), 'get', (options) => {
-  console.log(options)
+  // console.log(options)
   return Mock.mock({ data, code: '0000' })
 })
 
